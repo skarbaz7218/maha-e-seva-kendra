@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 from .models import Service
 
 
 def home(request):
 
-    # Home page pe specific services dikhane ke liye
-    # Aadhar Card, Voter ID, Pan Card — is order me
     featured_names = [
         "Aadhar Card",
         "Voter ID",
@@ -17,14 +17,12 @@ def home(request):
         name__in=featured_names
     )
 
-    # Custom order maintain karne ke liye
     ordered_services = []
     for name in featured_names:
         for service in services:
             if service.name == name:
                 ordered_services.append(service)
 
-    # Agar koi service missing hai, to baaki services se fill karo
     if len(ordered_services) < 3:
         other_services = Service.objects.filter(
             is_active=True
@@ -76,32 +74,40 @@ def service_detail(request, service_id):
             "service": service,
             "related_services": related_services,
         }
-    ) 
+    )
+
+
 def privacy_policy(request):
-        return render(
-            request,
-            'services/privacy_policy.html'
-        )
+    return render(
+        request,
+        'services/privacy_policy.html'
+    )
+
+
 def terms_of_service(request):
     return render(
         request,
         'services/terms_of_service.html'
     )
 
+
 def create_superuser_temp(request):
     """Temporary view to create superuser"""
     
-    User.objects.filter(username='admin').delete()
-    
-    User.objects.create_superuser(
-        username='admin',
-        email='skarbaz7218@gmail.com',
-        password='MahaSeva@2026'
-    )
-    
-    return HttpResponse(
-        "Superuser created!<br>"
-        "Username: <b>admin</b><br>"
-        "Password: <b>MahaSeva@2026</b><br><br>"
-        "<b>DELETE THIS VIEW NOW!</b>"
-    )
+    try:
+        User.objects.filter(username='admin').delete()
+        
+        user = User.objects.create_superuser(
+            username='admin',
+            email='skarbaz7218@gmail.com',
+            password='MahaSeva@2026'
+        )
+        
+        return HttpResponse(
+            "Superuser created!<br>"
+            "Username: <b>admin</b><br>"
+            "Password: <b>MahaSeva@2026</b><br><br>"
+            "<b>DELETE THIS VIEW NOW!</b>"
+        )
+    except Exception as e:
+        return HttpResponse(f"ERROR: {str(e)}")
