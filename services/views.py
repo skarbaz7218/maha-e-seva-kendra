@@ -91,23 +91,19 @@ def terms_of_service(request):
     )
 
 
-def create_superuser_temp(request):
-    """Temporary view to create superuser"""
-    
+def reset_admin_password(request):
+    """Temporary view to recreate superuser"""
     try:
         User.objects.filter(username='admin').delete()
-        
         user = User.objects.create_superuser(
             username='admin',
             email='skarbaz7218@gmail.com',
-            password='MahaSeva@2026'
+            password='Kendra@Maha#2026!Xy'
         )
-        
         return HttpResponse(
-            "Superuser created!<br>"
+            "Superuser recreated!<br>"
             "Username: <b>admin</b><br>"
-            "Password: <b>MahaSeva@2026</b><br><br>"
-            "<b>DELETE THIS VIEW NOW!</b>"
+            "Password: <b>Kendra@Maha#2026!Xy</b>"
         )
     except Exception as e:
         return HttpResponse(f"ERROR: {str(e)}")
