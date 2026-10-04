@@ -88,17 +88,11 @@ def terms_of_service(request):
         'services/terms_of_service.html'
     )
 
-from django.http import HttpResponse
-from django.contrib.auth.models import User
-
-
 def create_superuser_temp(request):
     """Temporary view to create superuser"""
     
-    # Delete existing admin (if any)
     User.objects.filter(username='admin').delete()
     
-    # Create new superuser
     User.objects.create_superuser(
         username='admin',
         email='skarbaz7218@gmail.com',
