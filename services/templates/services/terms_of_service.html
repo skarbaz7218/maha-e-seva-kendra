@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+
+{% block title %}Terms of Service | Maha e Seva Kendra Kandhar{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+    .page-hero {
+        position: relative;
+        padding: 65px 7% 75px;
+        overflow: hidden;
+        text-align: center;
+        background: radial-gradient(circle at 75% 20%, rgba(37, 99, 235, 0.14), transparent 28%), linear-gradient(135deg, #f8fbff, #f2f6ff);
+    }
+
+    .page-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 760px;
+        margin: auto;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 8px 14px;
+        margin-bottom: 18px;
+        border: 1px solid #dbe5f5;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.75);
+        color: #1554c7;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .live-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
+    }
+
+    .page-hero h1 {
+        color: #101828;
+        font-size: clamp(38px, 5vw, 55px);
+        line-height: 1.08;
+        letter-spacing: -2px;
+        margin-bottom: 14px;
+    }
+
+    .page-hero h1 span {
+        background: linear-gradient(90deg, #1554c7, #4f46e5);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .page-hero p {
+        max-width: 650px;
+        margin: auto;
+        color: #667085;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .policy-section {
+        padding: 60px 7% 80px;
+        background: #f5f7fb;
+    }
+
+    .policy-container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 45px;
+        border-radius: 20px;
+        border: 1px solid #e3e9f2;
+        box-shadow: 0 12px 35px rgba(16, 24, 40, 0.05);
+    }
+
+    .policy-container h2 {
+        color: #101828;
+        font-size: 22px;
+        margin-top: 32px;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #edf4ff;
+    }
+
+    .policy-container h2:first-child {
+        margin-top: 0;
+    }
+
+    .policy-container p {
+        color: #475467;
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 14px;
+    }
+
+    .policy-container ul {
+        margin-left: 22px;
+        margin-bottom: 16px;
+    }
+
+    .policy-container li {
+        color: #475467;
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 8px;
+    }
+
+    .policy-container strong {
+        color: #172033;
+    }
+
+    .policy-container a {
+        color: #1554c7;
+    }
+
+    .policy-container a:hover {
+        text-decoration: underline;
+    }
+
+    .last-updated {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 30px;
+        background: #edf4ff;
+        border: 1px solid #dbe7fa;
+        color: #1554c7;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 22px;
+    }
+
+    @media (max-width: 650px) {
+        .page-hero { padding: 60px 6% 70px; }
+        .page-hero h1 { font-size: 36px; letter-spacing: -1.5px; }
+        .policy-section { padding: 45px 5% 65px; }
+        .policy-container { padding: 25px; }
+        .policy-container h2 { font-size: 20px; }
+    }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="page-hero-content">
+
+        <div class="hero-badge">
+            <span class="live-dot"></span>
+            Legal Information
+        </div>
+
+        <h1>Terms of <span>Service</span></h1>
+
+        <p>
+            Please read these terms carefully before using
+            our website and services.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section class="policy-section">
+
+    <div class="policy-container">
+
+        <span class="last-updated">Last Updated: October 2026</span>
+
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+            By accessing or using the website and services of
+            <strong>Maha e Seva Kendra, Kandhar</strong> ("we", "our", "us"),
+            you agree to be bound by these Terms of Service. If you do not
+            agree with any part of these terms, please do not use our
+            website or services.
+        </p>
+
+
+        <h2>2. Services</h2>
+        <p>
+            Maha e Seva Kendra, Kandhar provides assistance with various
+            digital and government-related services, including but not
+            limited to:
+        </p>
+        <ul>
+            <li>Aadhaar services</li>
+            <li>PAN card registration and corrections</li>
+            <li>Voter ID services</li>
+            <li>Passport assistance</li>
+            <li>Various certificates (income, caste, domicile, etc.)</li>
+            <li>E-Shram, Ayushman Bharat, and similar government schemes</li>
+            <li>Other digital documentation services</li>
+        </ul>
+        <p>
+            We act as a <strong>service facilitation center</strong> and
+            are not a government authority. Final approval of any
+            application rests with the respective government department.
+        </p>
+
+
+        <h2>3. User Responsibilities</h2>
+        <p>By using our services, you agree to:</p>
+        <ul>
+            <li>Provide <strong>accurate, correct, and complete</strong> information</li>
+            <li>Submit <strong>genuine and valid documents</strong> only</li>
+            <li>Not submit fake, forged, or tampered documents</li>
+            <li>Pay the applicable service fees on time</li>
+            <li>Provide correct contact details (phone, WhatsApp, email)</li>
+            <li>Cooperate with any verification requests</li>
+        </ul>
+
+
+        <h2>4. Prohibited Activities</h2>
+        <p>You agree NOT to:</p>
+        <ul>
+            <li>Submit false, fake, or forged documents</li>
+            <li>Use our services for any illegal or fraudulent purpose</li>
+            <li>Attempt to hack, damage, or misuse our website</li>
+            <li>Copy, reproduce, or redistribute our content without permission</li>
+            <li>Misrepresent your identity or affiliation</li>
+            <li>Engage in any activity that violates Indian law</li>
+        </ul>
+        <p>
+            Violation of these terms may result in <strong>immediate
+            termination</strong> of services and legal action if necessary.
+        </p>
+
+
+        <h2>5. Fees and Payment</h2>
+        <p>
+            Service fees vary depending on the type of service. Fees are
+            communicated to you before the service is initiated. Payment
+            must be made as agreed. Government fees (if any) are separate
+            and non-refundable.
+        </p>
+
+
+        <h2>6. Refund Policy</h2>
+        <p>Refunds are considered on a case-by-case basis:</p>
+        <ul>
+            <li><strong>Service fee:</strong> Refundable only if we are unable to provide the service</li>
+            <li><strong>Government fee:</strong> Non-refundable once submitted</li>
+            <li><strong>Incomplete applications:</strong> No refund for applications rejected due to incorrect or incomplete information</li>
+        </ul>
+        <p>For refund requests, please contact us with your service details.</p>
+
+
+        <h2>7. Limitation of Liability</h2>
+        <p>Maha e Seva Kendra, Kandhar acts as a facilitator only. We are <strong>not responsible</strong> for:</p>
+        <ul>
+            <li>Delays caused by government departments</li>
+            <li>Rejection of applications by government authorities</li>
+            <li>Errors in documents provided by you</li>
+            <li>Any indirect or consequential loss</li>
+        </ul>
+        <p>Our maximum liability is limited to the service fee paid by you for the specific service.</p>
+
+
+        <h2>8. Privacy</h2>
+        <p>
+            Your privacy is important to us. Please refer to our
+            <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+            for details on how we collect, use, and protect your
+            personal information.
+        </p>
+
+
+        <h2>9. Termination</h2>
+        <p>We reserve the right to <strong>refuse or terminate</strong> services at any time if:</p>
+        <ul>
+            <li>You provide false or fake documents</li>
+            <li>You violate any of these terms</li>
+            <li>We suspect any illegal or fraudulent activity</li>
+            <li>Required by law or government authorities</li>
+        </ul>
+
+
+        <h2>10. Governing Law</h2>
+        <p>
+            These Terms of Service are governed by the laws of
+            <strong>India</strong>. Any disputes shall be subject to the
+            exclusive jurisdiction of the courts in <strong>Kandhar,
+            Maharashtra</strong>.
+        </p>
+
+
+        <h2>11. Changes to Terms</h2>
+        <p>
+            We may <strong>update</strong> these Terms of Service from
+            time to time. Updates will be posted on this page, and the
+            "Last Updated" date will change. Continued use of our
+            website means you accept the updated terms.
+        </p>
+
+
+        <h2>12. Contact Us</h2>
+        <p>For any questions about these Terms of Service, please contact us:</p>
+        <ul>
+            <li><strong>Address:</strong> Maha e Seva Kendra, Kandhar<br>Near Tehsil Office, Karamunge Complex<br>Kandhar, Maharashtra - 431714</li>
+            <li><strong>Phone:</strong> <a href="tel:+917218449487">+91 7218449487</a></li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/917218449487" target="_blank">Chat on WhatsApp</a></li>
+        </ul>
+
+
+        <h2>13. Acknowledgment</h2>
+        <p>
+            By using our website and services, you acknowledge that you
+            have read, understood, and agree to be bound by these
+            Terms of Service.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
