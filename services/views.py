@@ -90,25 +90,5 @@ def terms_of_service(request):
 
 
 
-from django.http import HttpResponse
-from django.contrib.auth.models import User
-
-
-def create_superuser_temp(request):
-    """Temporary view to create superuser (delete after use)"""
+ 
     
-    # Check if superuser already exists
-    if User.objects.filter(is_superuser=True).exists():
-        return HttpResponse("Superuser already exists. Delete this view.")
-    
-    # Create superuser
-    User.objects.create_superuser(
-        username='admin',
-        email='skarbaz7218@gmail.com',
-        password='MahaSeva@2026'
-    )
-    
-    return HttpResponse(
-        "Superuser created! Username: admin, Password: MahaSeva@2026"
-        "<br><br><b>DELETE THIS VIEW NOW!</b>"
-    )
