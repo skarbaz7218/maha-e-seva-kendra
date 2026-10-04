@@ -202,3 +202,20 @@ class Command(BaseCommand):
         self.stdout.write(
             self.style.SUCCESS(f"Successfully added {len(SERVICES)} services")
         )
+        
+        # Create superuser if not exists
+        from django.contrib.auth.models import User
+        
+        if not User.objects.filter(username='admin').exists():
+            User.objects.create_superuser(
+                username='admin',
+                email='skarbaz7218@gmail.com',
+                password='Maha@Kendra#2026!Xy'
+            )
+            self.stdout.write(
+                self.style.SUCCESS("Superuser created: admin")
+            )
+        else:
+            self.stdout.write(
+                self.style.SUCCESS("Superuser already exists")
+            )
