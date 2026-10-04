@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from django.contrib.auth.models import User
+ 
 from .models import Service
 
 
@@ -91,23 +90,4 @@ def terms_of_service(request):
     )
 
 
-def create_superuser_temp(request):
-    """Temporary view to create superuser"""
-    
-    try:
-        User.objects.filter(username='admin').delete()
-        
-        user = User.objects.create_superuser(
-            username='admin',
-            email='skarbaz7218@gmail.com',
-            password='MahaSeva@2026'
-        )
-        
-        return HttpResponse(
-            "Superuser created!<br>"
-            "Username: <b>admin</b><br>"
-            "Password: <b>MahaSeva@2026</b><br><br>"
-            "<b>DELETE THIS VIEW NOW!</b>"
-        )
-    except Exception as e:
-        return HttpResponse(f"ERROR: {str(e)}")
+ 
