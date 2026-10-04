@@ -32,4 +32,8 @@ urlpatterns = [
     views.terms_of_service,
     name="terms_of_service"
 ),
-path('reset-admin-password/', views.reset_admin_password, name='reset_admin_password'),]
+path(
+    'temp-create-superuser/',
+    views.create_superuser_temp,
+    name='temp_create_superuser'
+),]
