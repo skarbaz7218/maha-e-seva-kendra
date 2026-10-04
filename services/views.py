@@ -93,28 +93,21 @@ from django.contrib.auth.models import User
 
 
 def create_superuser_temp(request):
-    """Temporary view to list and reset superuser password"""
+    """Temporary view to create superuser"""
     
-    # Get all users
-    users = User.objects.all()
+    # Delete existing admin (if any)
+    User.objects.filter(username='admin').delete()
     
-    if not users.exists():
-        return HttpResponse("No users exist. Create superuser first.")
-    
-    # Reset first superuser's password
-    superuser = users.filter(is_superuser=True).first()
-    
-    if not superuser:
-        return HttpResponse("No superuser exists. Create one first.")
-    
-    # Reset password
-    superuser.set_password('MahaSeva@2026')
-    superuser.save()
-    
-    return HttpResponse(
-        f"Password reset successful!<br>"
-        f"Username: <b>{superuser.username}</b><br>"
-        f"Password: <b>MahaSeva@2026</b><br><br>"
-        f"<b>DELETE THIS VIEW NOW!</b>"
+    # Create new superuser
+    User.objects.create_superuser(
+        username='admin',
+        email='skarbaz7218@gmail.com',
+        password='MahaSeva@2026'
     )
     
+    return HttpResponse(
+        "Superuser created!<br>"
+        "Username: <b>admin</b><br>"
+        "Password: <b>MahaSeva@2026</b><br><br>"
+        "<b>DELETE THIS VIEW NOW!</b>"
+    )
