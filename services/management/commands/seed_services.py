@@ -185,11 +185,15 @@ class Command(BaseCommand):
     help = "Seed services data"
 
     def handle(self, *args, **options):
-        # Delete existing services
-        Service.objects.all().delete()
+        # Sirf tab add karo jab service pehle se nahi hai
+        added = 0
+        skipped = 0
         
-        # Add new services
         for data in SERVICES:
+            if Service.objects.filter(name=data["name"]).exists():
+                skipped += 1
+                continue
+            
             Service.objects.create(
                 name=data["name"],
                 name_marathi=data["name_marathi"],
@@ -198,9 +202,12 @@ class Command(BaseCommand):
                 category=data["category"],
                 is_active=True,
             )
+            added += 1
         
         self.stdout.write(
-            self.style.SUCCESS(f"Successfully added {len(SERVICES)} services")
+            self.style.SUCCESS(
+                f"Added: {added} services, Skipped: {skipped} (already exist)"
+            )
         )
         
         # Create superuser if not exists
