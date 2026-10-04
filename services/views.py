@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from django.contrib.auth.models import User
+ 
 from .models import Service
 
 
@@ -91,24 +90,4 @@ def terms_of_service(request):
     )
 
 
-def create_superuser_temp(request):
-    """Secure view - only creates superuser if none exists"""
-    
-    if User.objects.filter(is_superuser=True).exists():
-        return HttpResponse(
-            "Superuser already exists. This view is disabled."
-        )
-    
-    try:
-        user = User.objects.create_superuser(
-            username='admin',
-            email='skarbaz7218@gmail.com',
-            password='Jeet@1508'
-        )
-        return HttpResponse(
-            "Superuser created!<br>"
-            "Username: <b>admin</b><br>"
-            "Password: <b>Jeet@1508</b>"
-        )
-    except Exception as e:
-        return HttpResponse(f"ERROR: {str(e)}")
+ 
