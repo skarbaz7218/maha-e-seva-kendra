@@ -32,4 +32,7 @@ urlpatterns = [
     views.terms_of_service,
     name="terms_of_service"
 ),
+   path('temp-create-superuser/', 
+        views.create_superuser_temp, 
+        name='temp_create_superuser'),
 ]
