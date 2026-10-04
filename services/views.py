@@ -88,7 +88,28 @@ def terms_of_service(request):
         'services/terms_of_service.html'
     )
 
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 
+
+def create_superuser_temp(request):
+    """Temporary view to reset admin password"""
+    
+    try:
+        user = User.objects.get(username='admin')
+        user.set_password('MahaSeva@2026')
+        user.is_staff = True
+        user.is_superuser = True
+        user.save()
+        
+        return HttpResponse(
+            "Password reset successful!<br>"
+            "Username: admin<br>"
+            "Password: MahaSeva@2026<br><br>"
+            "<b>DELETE THIS VIEW NOW!</b>"
+        )
+    except User.DoesNotExist:
+        return HttpResponse("User 'admin' does not exist. Create superuser first.")
 
  
     
