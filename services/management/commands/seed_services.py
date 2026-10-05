@@ -185,7 +185,7 @@ class Command(BaseCommand):
     help = "Seed services data"
 
     def handle(self, *args, **options):
-        # Sirf tab add karo jab service pehle se nahi hai
+        # Sirf naye services add karo, purane delete mat karo
         added = 0
         skipped = 0
         
