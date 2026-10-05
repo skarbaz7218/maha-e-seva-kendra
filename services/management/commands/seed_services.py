@@ -185,44 +185,29 @@ class Command(BaseCommand):
     help = "Seed services data"
 
     def handle(self, *args, **options):
-        # Sirf naye services add karo, purane delete mat karo
+        # Naye services add karo, existing update karo
         added = 0
-        skipped = 0
+        updated = 0
         
         for data in SERVICES:
-            if Service.objects.filter(name=data["name"]).exists():
-                skipped += 1
-                continue
-            
-            Service.objects.create(
+            service, created = Service.objects.update_or_create(
                 name=data["name"],
-                name_marathi=data["name_marathi"],
-                description=data["description"],
-                documents_required=data["documents_required"],
-                category=data["category"],
-                is_active=True,
+                defaults={
+                    "name_marathi": data["name_marathi"],
+                    "description": data["description"],
+                    "documents_required": data["documents_required"],
+                    "category": data["category"],
+                    "is_active": True,
+                }
             )
-            added += 1
+            
+            if created:
+                added += 1
+            else:
+                updated += 1
         
         self.stdout.write(
             self.style.SUCCESS(
-                f"Added: {added} services, Skipped: {skipped} (already exist)"
+                f"Added: {added} services, Updated: {updated} services"
             )
         )
-        
-        # Create superuser if not exists
-        from django.contrib.auth.models import User
-        
-        if not User.objects.filter(username='admin').exists():
-            User.objects.create_superuser(
-                username='admin',
-                email='skarbaz7218@gmail.com',
-                password='Maha@Kendra#2026!Xy'
-            )
-            self.stdout.write(
-                self.style.SUCCESS("Superuser created: admin")
-            )
-        else:
-            self.stdout.write(
-                self.style.SUCCESS("Superuser already exists")
-            )
