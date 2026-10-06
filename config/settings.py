@@ -29,8 +29,8 @@ ALLOWED_HOSTS = [
     '.onrender.com',
     'mahaesevakendra.in',
     'www.mahaesevakendra.in',
+    'mahaeseva.pythonanywhere.com',
 ]
-
 
 # ============================================
 # SECURITY
