@@ -19,7 +19,7 @@ SECRET_KEY = os.environ.get(
 
 
 # DEBUG — development me True, production me False
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 
 # Allowed hosts
