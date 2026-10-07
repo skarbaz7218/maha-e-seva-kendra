@@ -12,10 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECRET KEY — environment variable se aayega (production me)
-SECRET_KEY = os.environ.get(
-    'SECRET_KEY',
-    'django-insecure-z_5*&^vst6n=%@!zrx@+%bk0*-o!_rtez55#%4xb6^m@spnb_-'
-)
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # DEBUG — development me True, production me False
